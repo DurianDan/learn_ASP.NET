@@ -26,6 +26,8 @@ namespace HelloWorld // used to store classes and other namespaces
       Console.WriteLine(testString + testString.Length);
       Console.WriteLine(testString.ToUpper());
       Console.WriteLine(testString.Substring(2,10));
+
+      Console.WriteLine($"10 > 9 is {10 > 9}");
     }
   }
 }
