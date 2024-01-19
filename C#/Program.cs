@@ -9,6 +9,7 @@ namespace HelloWorld // used to store classes and other namespaces
       int myNum = 91;
       int divider = 3;
       string myName = "Huy";
+      float dividedNum = (float) myNum/divider;
       Console.WriteLine($"My Name is {myName}");
       Console.WriteLine($"{myNum}%{divider} = {myNum%divider}");
       Console.WriteLine($"Converted {myNum}/{divider} = {(float) myNum/divider}");
@@ -19,7 +20,12 @@ namespace HelloWorld // used to store classes and other namespaces
       // because user input is a variable edited at runtime
       int userAge = Convert.ToInt32(Console.ReadLine());
       Console.WriteLine($"You are {userAge} years old");
+      Console.WriteLine($"Rounded number: {Math.Round(dividedNum)}");
 
+      string testString = "Length of this string is: ";
+      Console.WriteLine(testString + testString.Length);
+      Console.WriteLine(testString.ToUpper());
+      Console.WriteLine(testString.Substring(2,10));
     }
   }
 }
