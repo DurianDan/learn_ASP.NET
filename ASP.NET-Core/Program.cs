@@ -1,9 +1,11 @@
+// var keyword will tell the compiler
+// to auto infer type of the variable
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddEndpointsApiExplorer(); // allow API discoverbility
+builder.Services.AddSwaggerGen(); // interactive API development
 
 var app = builder.Build();
 
@@ -14,6 +16,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//If clients send requests to "http://..."
+//It will be redirect to "https://..."
 app.UseHttpsRedirection();
 
 var summaries = new[]
