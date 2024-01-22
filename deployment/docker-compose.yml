@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  postgres_learn:
+    container_name: 'postges_learn'
+    image: 'postgres:latest'
+    ports:
+      - 15432:5432
+    volumes:
+      - ./postgres/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_PASSWORD=learning_dotnet
+      - POSTGRES_USER=learning_dotnet
+      - POSTGRES_DB=learning_dotnet
+      - PGADMIN_DEFAULT_EMAIL=learning_dotnet@mail.com
+      - PGADMIN_DEFAULT_PASSWORD=learning_dotnet

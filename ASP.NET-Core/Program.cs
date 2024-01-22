@@ -1,3 +1,6 @@
+using learn.Data;
+using Microsoft.EntityFrameworkCore;
+
 // var keyword will tell the compiler
 // to auto infer type of the variable
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer(); // allow API discoverbility
 builder.Services.AddSwaggerGen(); // interactive API development
+
+builder.Services.AddDbContext<IssueDbContext>
+(options => options.UseNpgsql(
+    builder.Configuration.GetConnectionString("SqlServer"))
+);
 
 var app = builder.Build();
 
