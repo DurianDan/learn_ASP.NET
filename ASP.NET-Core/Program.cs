@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer(); // allow API discoverbility
 builder.Services.AddSwaggerGen(); // interactive API development
-
+builder.Services.AddControllers(); // this needs to be added so that the donet compiler can read the controller
 builder.Services.AddDbContext<IssueDbContext>
 (options => options.UseNpgsql(
     builder.Configuration.GetConnectionString("SqlServer"))
@@ -27,6 +27,8 @@ if (app.Environment.IsDevelopment())
 //If clients send requests to "http://..."
 //It will be redirect to "https://..."
 app.UseHttpsRedirection();
+
+app.MapControllers(); // this needs to be added so that the donet compiler can read the controller
 
 var summaries = new[]
 {
